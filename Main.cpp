@@ -185,6 +185,7 @@ int main() {
 
 	} while (inp != 'q');
 	
+	
 	/*
 	code pour 3 equations cheap
 	int a = 3013;
@@ -198,6 +199,8 @@ int main() {
 		a += 50;
 	}
 	cout << a << endl;
+
+	change code here
 	*/
 
 	system("PAUSE");
