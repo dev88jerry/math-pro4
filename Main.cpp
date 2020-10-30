@@ -185,24 +185,6 @@ int main() {
 
 	} while (inp != 'q');
 	
-	
-	/*
-	code pour 3 equations cheap
-	int a = 3013;
-	while (true) {
-		int b = a % 7;
-		int c = a % 9;
-
-		if (b == 4 && c == 7) {
-			break;
-		}
-		a += 50;
-	}
-	cout << a << endl;
-
-	change code here
-	*/
-
 	system("PAUSE");
 
 	return 0;
