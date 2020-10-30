@@ -14,6 +14,7 @@ Mod power calc -> C^d mod n
 
 using namespace std;
 
+//Code 1
 //Extended Euclidean Algorithm
 //table and inverse mod
 void gcdTab(const int a, const int b) {
@@ -49,6 +50,7 @@ void gcdTab(const int a, const int b) {
 	}	
 }
 
+//Code 2
 //fermat factorization
 //n = p*q as n = a^2-b^2
 int fermat(const int n) {
@@ -63,11 +65,12 @@ int fermat(const int n) {
 		b = round(sqrt(b2));
 		c++;
 	}
-	cout << c << endl;
+	cout << "Etapes: " << c << endl;
 
 	return a - b;
 }
 
+//Code 3
 //convert to base2
 string base2(const int base10Num) {
 
@@ -79,7 +82,7 @@ string base2(const int base10Num) {
 
 	while (divRes != 0) {
 		modRes = divRes % 2;
-		//c = convIntChar(modRes);
+		
 		if (modRes == 1) {
 			c = '1';
 		}
@@ -99,16 +102,17 @@ string base2(const int base10Num) {
 	return s;
 }
 
+//Code 3
 //base2 string pow with mod table
 int expModCalc(const string b2, const int modN, const int cN) {
 
 	string s = b2;
-	cout << s << endl;
-	cout << "modN = " << modN << endl;
-	cout << "cN = " << cN << endl;
+
 	int i = 0;
+	
 	long long int bk = 1;
 	long long int lv = 1;
+
 	string::reverse_iterator ri = s.rbegin();
 	for (string::reverse_iterator rit = s.rbegin(); rit != s.rend(); ++rit) {		
 		if (i != 0) {
@@ -117,7 +121,7 @@ int expModCalc(const string b2, const int modN, const int cN) {
 		else {
 			lv *= cN % modN;
 		}
-		cout << lv << endl;
+		//cout << lv << endl;
 		if (*rit == '1') {	
 			bk = (bk*lv) % modN;			
 		}	
@@ -127,6 +131,7 @@ int expModCalc(const string b2, const int modN, const int cN) {
 	return bk;
 }
 
+//code pour executer le programme
 int main() {
 
 	char inp;
@@ -140,6 +145,8 @@ int main() {
 		cout << "Q: quitter" << endl;
 		cout << "Enter votre choix" << endl;
 		cin >> inp;
+
+		inp = tolower(inp);
 
 		switch (inp)
 		{
@@ -159,11 +166,11 @@ int main() {
 		}
 		case 'b': {
 			int x;
-			cout << "Enter le nombre pour factorizer" << endl;
+			cout << "Enter le nombre pour factoriser" << endl;
 			cin >> x;
 			int y = fermat(x);
 			int z = x / y;
-			cout << x << " facotrize en " << y << " x " << z << endl;
+			cout << x << " facotrise en " << y << " x " << z << endl;
 			break;
 		}
 		case 'c': {
@@ -188,5 +195,4 @@ int main() {
 	system("PAUSE");
 
 	return 0;
-	
 }
