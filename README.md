@@ -12,4 +12,4 @@ Option B finds 2 factors for a given input using n = p \* q such that n = a^2 - 
 
 ## C : Modular exponent calculation
 
-Option C calculates C^d mod n using the provided inputs. It requires d to be converted to base 2 to simply the modular exponents
+Option C calculates C^d mod n using the provided inputs. It requires d to be converted to base 2 to simpifly the modular exponents
