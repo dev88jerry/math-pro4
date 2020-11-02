@@ -30,10 +30,19 @@ void gcdTab(const int a, const int b) {
 	cout << "\t" << r << "\t" << x << "\t" << y << "\t" << r1 << "\t" << x1 << "\t" << y1 << endl;
 
 	while (r1 != 0) {
-		sr1 = r, sx1 = x, sy1 = y;
+		sr1 = r;
+		sx1 = x;
+		sy1 = y;
+
 		q = floor(r / r1);
-		r = r1, x = x1, y = y1;
-		r1 = sr1 % r, x1 = sx1 - q*x, y1 = sy1 - q*y;
+
+		r = r1;
+		x = x1;
+		y = y1;
+
+		r1 = sr1 % r;
+		x1 = sx1 - q*x;
+		y1 = sy1 - q*y;
 
 		cout << q << "\t" << r << "\t" << x << "\t" << y << "\t" << r1 << "\t" << x1 << "\t" << y1 << endl;
 	}
@@ -47,7 +56,7 @@ void gcdTab(const int a, const int b) {
 		else {
 			cout << y << " est l'inverse modulaire" << endl;
 		}
-	}	
+	}
 }
 
 //Code 2
@@ -82,7 +91,7 @@ string base2(const int base10Num) {
 
 	while (divRes != 0) {
 		modRes = divRes % 2;
-		
+
 		if (modRes == 1) {
 			c = '1';
 		}
@@ -109,22 +118,22 @@ int expModCalc(const string b2, const int modN, const int cN) {
 	string s = b2;
 
 	int i = 0;
-	
+
 	long long int bk = 1;
 	long long int lv = 1;
 
 	string::reverse_iterator ri = s.rbegin();
-	for (string::reverse_iterator rit = s.rbegin(); rit != s.rend(); ++rit) {		
+	for (string::reverse_iterator rit = s.rbegin(); rit != s.rend(); ++rit) {
 		if (i != 0) {
-			lv = (lv*lv) % modN;			
+			lv = (lv*lv) % modN;
 		}
 		else {
 			lv *= cN % modN;
 		}
 		//cout << lv << endl;
-		if (*rit == '1') {	
-			bk = (bk*lv) % modN;			
-		}	
+		if (*rit == '1') {
+			bk = (bk*lv) % modN;
+		}
 		i++;
 	}
 
@@ -183,7 +192,7 @@ int main() {
 			string b2 = base2(d);
 
 			cout << c << " ^ " << d << " mod " << n << " = " << expModCalc(b2, n, c) << endl;
-			
+
 			break;
 		}
 		default:
@@ -191,7 +200,7 @@ int main() {
 		}
 
 	} while (inp != 'q');
-	
+
 	system("PAUSE");
 
 	return 0;
